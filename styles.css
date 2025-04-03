@@ -1,0 +1,48 @@
+/* Animasi Marquee */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background: #6a0dad; /* Warna ungu */
+    padding: 10px 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.marquee-text {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    animation: marquee 10s linear infinite;
+}
+
+/* Styling for Cart */
+.cart-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    overflow-y: auto;
+    display: none;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-total {
+    font-weight: bold;
+    margin-top: 20px;
+}
