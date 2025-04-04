@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap" rel="stylesheet">
-    <title>Selamat datang di website kami!</title>
+    <title>Pants Catalog</title>
     <link rel="icon" type="image/png" href="Weird logo (64 x 64 px) (1).png">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -14,27 +14,34 @@
         body {
             font-family: 'Playfair Display', serif;
         }
-        /* Animasi Marquee */
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+        /* Additional styles as needed */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
         }
-
-        .marquee-container {
-            width: 100%;
-            overflow: hidden;
-            background: #6a0dad; /* Warna ungu */
-            padding: 10px 0;
-            white-space: nowrap;
-            position: relative;
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
         }
-
-        .marquee-text {
-            display: inline-block;
-            font-size: 16px;
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            margin-top: 10px;
+        }
+        .product p {
+            margin-bottom: 10px;
+        }
+        .product .price {
             font-weight: bold;
-            color: white;
-            animation: marquee 10s linear infinite;
+        }
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -55,19 +62,17 @@
     <!-- Header -->
     <header class="bg-white shadow-md">
         <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-            <a class="block text-violet-600" href="#">
+            <a class="block text-violet-600" href="index.html">
                 <span class="sr-only">Home</span>
-                <img src="WEIRD.png " alt="Home" class="h-8">
-                    <path d="..." fill="currentColor"/>
-                </svg>
+                <img src="WEIRD.png" alt="Home" class="h-8">
             </a>
-        
+
             <div class="flex flex-1 items-center justify-end md:justify-between">
                 <nav aria-label="Global" class="hidden md:block">
                     <ul class="flex items-center gap-6 text-sm text-gray-600">
                         <li><a class="hover:text-gray-800" href="index.html">Home</a></li>
                         <li><a class="hover:text-gray-800" href="pants.html">Pants</a></li>
-                        <li><a class="hover:text-gray-800" href="Hoodie.html">Hoodie</a></li>
+                        <li><a class="hover:text-gray-800" href="#">Hoodie</a></li>
                         <li><a class="hover:text-gray-800" href="#">T-Shirt</a></li>
                         <li><a class="hover:text-gray-800" href="#">Dress</a></li>
                         <li><a class="hover:text-gray-800" href="#">Accecories</a></li>
@@ -89,95 +94,27 @@
         </div>
     </header>
 
-    <!-- Gambar WEIRD -->
-    <div class="text-center my-6">
-        <img src="WEIRD.png" alt="WEIRD" class="mx-auto w-auto max-h-96">
-    </div>
-
-    <!-- Katalog Produk -->
-    <section class="max-w-6xl mx-auto">
-        <h1 class="text-3xl font-bold text-center mb-6">Hoodies Collection 25'</h1>
-
-        <div class="flex items-center">
-            <button id="prev" class="bg-violet-600 text-white px-4 py-2 rounded-md mr-2">←</button>
-            <div id="product-carousel" class="flex overflow-x-auto space-x-4">
-                <!-- Produk 1 -->
-                <div class="bg-white p-4 shadow-lg rounded-lg text-center min-w-[200px]">
-                    <img src="https://weird-brand.com/cdn/shop/files/KAR1928.jpg?v=1729261764&width=360" alt="Denim Vest Hoodie" class="w-full h-64 object-cover rounded">
-                    <h2 class="mt-4 font-semibold">DENIM VEST HOODIE</h2>
-                    <p class="text-gray-500">Rp 395.000</p>
-                    <button class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 add-to-cart" data-name="DENIM VEST HOODIE" data-price="395000">Add to Cart</button>
-                </div>
-
-                <!-- Produk 2 (Sold Out) -->
-                <div class="bg-white p-4 shadow-lg rounded-lg text-center min-w-[200px] relative">
-                    <img src="https://weird-brand.com/cdn/shop/files/KAR1896.jpg?v=1729261570&width=360" alt="Black Sweater" class="w-full h-64 object-cover rounded opacity-50">
-                    <span class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded">Sold out</span>
-                    <h2 class="mt-4 font-semibold">BLACK SWEATER</h2>
-                    <p class="text-gray-500">Rp 340.000</p>
-                    <button class="bg-gray-400 text-white px-5 py-2 rounded-md cursor-not-allowed" disabled>Sold Out</button>
-                </div>
-
-                <!-- Produk 3 -->
-                <div class="bg-white p-4 shadow-lg rounded-lg text-center min-w-[200px]">
-                    <img src="https://weird-brand.com/cdn/shop/files/KAR1826.jpg?v=1729260910&width=360" alt="DISR - Purple Hoodie" class="w-full h-64 object-cover rounded">
-                    <h2 class="mt-4 font-semibold">DISR - PURPLE HOODIE</h2>
-                    <p class="text-gray-500">Rp 350.000</p>
-                    <button class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 add-to-cart" data-name="DISR - PURPLE HOODIE" data-price="350000">Add to Cart</button>
-                </div>
-
-                <!-- Produk 4 (Sold Out) -->
-                <div class="bg-white p-4 shadow-lg rounded-lg text-center min-w-[200px] relative">
-                    <img src="https://weird-brand.com/cdn/shop/files/KAR1844.jpg?v=1729260795&width=360" alt="Arcade Game - Gray Hoodie" class="w-full h-64 object-cover rounded opacity-50">
-                    <span class="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded">Sold out</span>
-                    <h2 class="mt-4 font-semibold">ARCADE GAME - GRAY HOODIE</h2>
-                    <p class="text-gray-500">Rp 350.000</p>
-                    <button class="bg-gray-400 text-white px-5 py-2 rounded-md cursor-not-allowed" disabled>Sold Out</button>
-                </div>
-
-                <!-- Produk 5 -->
-                <div class="bg-white p-4 shadow-lg rounded-lg text-center min-w-[200px]">
-                    <img src="https://weird-brand.com/cdn/shop/files/KAR2122.jpg?v=1729262117&width=360" alt="White Vest Hoodie" class="w-full h-64 object-cover rounded">
-                    <h2 class="mt-4 font-semibold">WHITE VEST HOODIE</h2>
-                    <p class="text-gray-500">Rp 380.000</p>
-                    <button class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 add-to-cart" data-name="WHITE VEST HOODIE" data-price="380000">Add to Cart</button>
-                </div>
-
-                <!-- Produk 6 -->
-                <div class="bg-white p-4 shadow-lg rounded-lg text-center min-w-[200px]">
-                    <img src="https://weird-brand.com/cdn/shop/products/hodiblue2.png?v=1673976511&width=823" alt="Blue Hoodie" class="w-full h-64 object-cover rounded">
-                    <h2 class="mt-4 font-semibold">BLUE HOODIE</h2>
-                    <p class="text-gray-500">Rp 360.000</p>
-                    <button class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 add-to-cart" data-name="BLUE HOODIE" data-price="360000">Add to Cart</button>
-                </div>
-
-                <!-- Produk 7 -->
-                <div class="bg-white p-4 shadow-lg rounded-lg text-center min-w-[200px]">
-                    <img src="https://weird-brand.com/cdn/shop/products/hoodib2.png?v=1673976980&width=360 alt="Red Hoodie" class="w-full h-64 object-cover rounded">
-                    <h2 class="mt-4 font-semibold">BLACK HOODIE</h2>
-                    <p class="text-gray-500">Rp 370.000</p>
-                    <button class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 add-to-cart" data-name="RED HOODIE" data-price="370000">Add to Cart</button>
-                </div>
-
-                <!-- Produk 8 -->
-                <div class="bg-white p-4 shadow-lg rounded-lg text-center min-w-[200px]">
-                    <img src="https://weird-brand.com/cdn/shop/products/image_40c02b68-5da4-4214-bdc5-81c41ab6c221.png?v=1674409206&width=360" alt="Green Hoodie" class="w-full h-64 object-cover rounded">
-                    <h2 class="mt-4 font-semibold">GRAY HOODIE</h2>
-                    <p class="text-gray-500">Rp 390.000</p>
-                    <button class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 add-to-cart" data-name="GREEN HOODIE" data-price="390000">Add to Cart</button>
-                </div>
-
-                <!-- Produk 9 -->
-                <div class="bg-white p-4 shadow-lg rounded-lg text-center min-w-[200px]">
-                    <img src="https://example.com/yellow-hoodie.jpg" alt="Yellow Hoodie" class="w-full h-64 object-cover rounded">
-                    <h2 class="mt-4 font-semibold">YELLOW HOODIE</h2>
-                    <p class="text-gray-500">Rp 400.000</p>
-                    <button class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 add-to-cart" data-name="YELLOW HOODIE" data-price="400000">Add to Cart</button>
-                </div>
-            </div>
-            <button id="next" class="bg-violet-600 text-white px-4 py-2 rounded-md ml-2">→</button>
+    <h1>Hoodie Catalog</h1>
+    <div class="container">
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250" alt="Hoodie 1">
+            <h3>Hoodie Name 1</h3>
+            <p>Description of Hoodie 1</p>
+            <p class="price">Rp 100.000</p>
+            <button class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 add-to-cart" data-name="Hoodie Name 1" data-price="100000">Add to Cart</button>
         </div>
-    </section>
+        <!-- Product 2-20 (Repeat similar structure) -->
+        <div class="product">
+            <img src="https://via.placeholder.com/250x250" alt="Hoodie 2">
+            <h3>Hoodie Name 2</h3>
+            <p>Description of Hoodie 2</p>
+            <p class="price">Rp 150.000</p>
+            <button class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 add-to-cart" data-name="Hoodie Name 2" data-price="150000">Add to Cart</button>
+        </div>
+        </div>
+        <!-- ...Repeat for products 3-20... -->
+    </div>
 
     <!-- Shopping Cart -->
     <div id="cart" class="cart-container">
@@ -187,8 +124,7 @@
         <button id="checkout" class="bg-violet-600 text-white px-5 py-2 rounded-md hover:bg-violet-700 mt-4">Checkout</button>
         <button id="clear-cart" class="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700 mt-4">Clear Cart</button>
     </div>
-    
-   <!-- Footer 1 -->
+    <!-- Footer 1 -->
 <footer class="bg-gray-100">
     <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="flex justify-center text-teal-600">
@@ -267,7 +203,7 @@
           <ul class="mt-12 flex justify-center gap-6 md:gap-8">
             <li>
               <a
-                href="error.html"
+                href="#"
                 rel="noreferrer"
                 target="_blank"
                 class="text-gray-700 transition hover:text-gray-700/75"
@@ -303,7 +239,7 @@
       
             <li>
               <a
-                href="error.html"
+                href="#"
                 rel="noreferrer"
                 target="_blank"
                 class="text-gray-700 transition hover:text-gray-700/75"
@@ -319,7 +255,7 @@
       
             <li>
               <a
-                href="error.html"
+                href="#"
                 rel="noreferrer"
                 target="_blank"
                 class="text-gray-700 transition hover:text-gray-700/75"
@@ -337,7 +273,7 @@
       
             <li>
               <a
-                href="error.html"
+                href="#"
                 rel="noreferrer"
                 target="_blank"
                 class="text-gray-700 transition hover:text-gray-700/75"
